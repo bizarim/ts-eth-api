@@ -1,0 +1,6 @@
+{
+    "port": 80,
+    "name": "api-api",
+    "logPath": "logs",
+    "logLevel": "debug"
+}

@@ -1,0 +1,10 @@
+{
+    "infura": {
+        "ep": "https://testnet.infura.io/v3/349e6679b09e46caae9cfa4337a22701",
+        "ws": "wss://testnet.infura.io/v3/349e6679b09e46caae9cfa4337a22701"
+    },
+    "fastnode": {
+        "ep": "http://15.165.102.75:8545",
+        "ws": "ws://15.165.102.75:8546"
+    }
+}

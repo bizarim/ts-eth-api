@@ -1,0 +1,52 @@
+version: '3.5'
+
+services:
+  api:
+    container_name: ethApi
+    build:
+      context: ./api
+      dockerfile: DockerfileDev
+    ports:
+      - 80:10230 #10230 10230 맵핑
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - ethApi:/data/ethApi
+    networks:
+      - backend
+    depends_on:
+      - scheduler
+
+  noti:
+    container_name: ethNoti
+    build:
+      context: ./noti
+      dockerfile: DockerfileDev
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - ethNoti:/data/ethNoti
+    restart: always
+    networks:
+      - backend
+    depends_on:
+      - scheduler
+
+  scheduler:
+    container_name: ethScheduler
+    build:
+      context: ./scheduler
+      dockerfile: DockerfileDev
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - ethScheduler:/data/ethScheduler
+
+networks:
+  backend:
+    external: true
+
+volumes:
+  ethScheduler:
+  ethNoti:
+  ethApi:

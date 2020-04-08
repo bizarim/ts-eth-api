@@ -1,0 +1,9 @@
+{
+    "host": "wallet.cbjskld3se77.ap-northeast-1.rds.amazonaws.com",
+    "port": 3306,
+    "username": "root",
+    "password": "qwe123!!",
+    "database": "wallet",
+    "synchronize": true,
+    "logging": true
+}

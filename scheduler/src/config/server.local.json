@@ -1,0 +1,6 @@
+{
+    "port": 80,
+    "name": "api-scheduler",
+    "logPath": "logs",
+    "logLevel": "debug"
+}

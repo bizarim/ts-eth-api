@@ -1,0 +1,6 @@
+{
+    "port": 10230,
+    "name": "api-scheduler",
+    "logPath": "logs",
+    "logLevel": "info"
+}

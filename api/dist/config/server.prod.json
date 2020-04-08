@@ -1,0 +1,6 @@
+{
+    "port": 10230,
+    "name": "api-api",
+    "logPath": "logs",
+    "logLevel": "debug"
+}

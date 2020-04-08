@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "module": "commonjs",
+      "target": "es6",
+      "noImplicitAny": false,
+      "declaration": false,
+      "strictNullChecks": true,
+      "sourceMap": true,
+      "outDir": "./dist",
+      "baseUrl": "./",
+      "resolveJsonModule": true,
+      "esModuleInterop": true
+  },
+  "include": [
+      "./src/**/*"
+  ]
+}

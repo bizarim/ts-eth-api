@@ -1,0 +1,6 @@
+{
+    "port": 10230,
+    "name": "api-noti",
+    "logPath": "logs",
+    "logLevel": "info"
+}

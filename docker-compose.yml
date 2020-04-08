@@ -1,0 +1,76 @@
+version: '3.5'
+
+services:
+  # mysql:
+  #   image: mysql:5.7.23
+  #   container_name: mysql
+  #   ports:
+  #     - 3306:3306
+  #   expose:
+  #     - 3306
+  #   volumes:
+  #     - ./embed/mysql/my.cnf:/etc/mysql/conf.d/mysql.cnf:ro
+  #     - ./embed/mysql/data:/var/lib/mysql/:rw
+  #   restart: always
+  #   networks:
+  #     - backend
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: "qwe123!"
+
+  # redis:
+  #   image: redis:5.0.3-alpine
+  #   container_name: redis
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - ./embed/redis/redis.conf:/etc/redis.conf:ro
+  #     - ./embed/redis/data:/data/:rw
+  #   restart: always
+  #   entrypoint: ["redis-server", "/etc/redis.conf"]
+  #   networks:
+  #     - backend
+
+  api:
+    container_name: ethApi
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - 80:10230 #10230 10230 맵핑
+    environment:
+      - NODE_ENV=prod
+    volumes:
+      - ethApi:/data/ethApi
+    networks:
+      - backend
+    depends_on:
+      - scheduler
+
+  # noti:
+  #   container_name: ethNoti
+  #   build:
+  #     context: ./noti
+  #     dockerfile: Dockerfile
+  #   environment:
+  #     - NODE_ENV=prod
+  #   volumes:
+  #     - ethNoti:/data/ethNoti
+
+  scheduler:
+    container_name: ethScheduler
+    build:
+      context: ./scheduler
+      dockerfile: Dockerfile
+    environment:
+      - NODE_ENV=prod
+    volumes:
+      - ethScheduler:/data/ethScheduler
+    restart: always
+
+networks:
+  backend:
+    external: true
+
+volumes:
+  ethScheduler:
+  ethApi:
